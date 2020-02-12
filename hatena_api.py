@@ -15,7 +15,7 @@ USER_NAME = 'katey_que'
 BLOG_NAME = 'katey-que.hatenablog.com'
 PASSWORD = 'fgpzvow4py'
 TITLE = ' {0} 今日の苗穂マルハン'.format(getTime.getTime())
-FILE_NAME = 'templeates/test_article.txt'
+FILE_NAME = 'maruhan/templeates/test_article.txt'
 
 
 def create_hatena_text(title, name, body, updated, categories, is_draft):
@@ -184,5 +184,5 @@ body = escape(body)
 categories = ['パチンコ','スロット', 'まとめ']
 now = datetime.now()
 # is_draftをFalseにすると公開になります。Trueで下書き投稿
-article = create_hatena_text(TITLE, USER_NAME, body, now, categories, is_draft=True)
+article = create_hatena_text(TITLE, USER_NAME, body, now, categories, is_draft=False)
 post_hatena_blog(USER_NAME, PASSWORD, entry_id=None, blog_name=BLOG_NAME, data=article)
