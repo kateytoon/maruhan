@@ -78,7 +78,7 @@ def writeCsv():
         os.makedirs('results/')
     
     if not(os.path.exists(p_outputFilePath)) :
-        p_df.to_csv('results/'+str(time)+'.csv', encoding='utf_8_sig')
+        p_df.to_csv('maruhan/results/'+str(time)+'.csv', encoding='utf_8_sig')
         #print("書き込んだ"+p_outputFilePath)
 
 
