@@ -1,0 +1,85 @@
+
+ 
+<br>
+毎日午前８時に前日のマルハン出玉情報を投稿します。
+<br>
+それでは見ていきましょう
+<br>
+<h2>台番号順</h2>
+<p>ここは基本読み飛ばしちゃって大丈夫だと思います。</p>
+<br>
+<details>
+  <summary>表示</summary>
+  <table border="1"style="font-size:5pt;width: 100%;">
+      <tr>
+        <th>台番号</th>
+        <th>台名前</th>
+        <th>出玉情報</th>
+        <th>通常時総回転数</th>
+        <th>BB数</th>
+        <th>RB数</th>
+      </tr>
+      {0}
+  </table>
+</details>
+<br>
+<h2>差枚順</h2>
+<p>万枚でたやつとか見てください。</p>
+<br>
+<details>
+  <summary>表示</summary>
+  <table border="1"style="font-size:5pt;width: 100%;">
+      <tr>
+        <th>台番号</th>
+        <th>台名前</th>
+        <th>出玉情報</th>
+        <th>通常時総回転数</th>
+        <th>BB数</th>
+        <th>RB数</th>
+      </tr>
+      {1}
+  </table>
+</details>
+<br>
+<h2>台別合計</h2>
+<p>ここからが本番だぞ</p>
+<br>
+<details>
+  <summary>表示</summary>
+  <table border="1"style="font-size:5pt;width: 100%;">
+      <tr>
+        <th>機種名</th>
+        <th>出玉合計</th>
+        <th>プラス枚数機種</th>
+        <th>総台数</th>
+        <th>勝率</th>
+      </tr>
+      {2}
+  </table>
+</details>
+<br>
+<h2>末尾別合計</h2>
+<p>これは個人的な興味からね...</p>
+<br>
+<details>
+  <summary>表示</summary>
+  <table border="1"style="font-size:5pt;width: 100%;">
+      <tr>
+        <th>末尾</th>
+        <th>出玉合計</th>
+        <th>総回転数</th>
+        <th>勝ち台数</th>
+        <th>総台数</th>
+        <th>勝率</th>
+      </tr>
+      {3}
+  </table>
+</details>
+{4}
+{5}
+<br>
+<h2>
+以上！
+</h2>
+<br>
+
