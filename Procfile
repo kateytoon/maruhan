@@ -1,1 +1,1 @@
-pbot: python run.py
+pbot: python app.py
