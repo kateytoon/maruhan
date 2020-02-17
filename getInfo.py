@@ -7,6 +7,7 @@ import getTime
 
 def getInfo(cstr):
     #print(cstr)
+    
     time = int(getTime.getTime())
     #print(time)
     url='https://nifmbapi.maruhan.co.jp/api/v1.4/machine/info'
