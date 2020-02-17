@@ -71,7 +71,7 @@ def text_format_table_number():
         else:
             stra += '<tr>'
 
-        stra += "<td>"+str(row[0])+"</td><td>"+str(row[1])+"</td><td>"+str(row[2])+"</td><td>"+str(row[3])+"</td><td>"+str(row[4])+"</td><td>"+str(row[5])+"</td>"
+        stra += "<td align='center'>"+str(row[0])+"</td><td align='center'>"+str(row[1])+"</td><td align='center'>"+ str('{:+d}'.format(row[2]))+"</td><td align='center'>"+str(row[3])+"</td><td align='center'>"+str(row[4])+"</td><td align='center'>"+str(row[5])+"</td>"
         stra += "</tr> \n"
     #print(stra)
     
@@ -89,7 +89,7 @@ def text_format_table_slump():
         else:
             stra += '<tr>'
 
-        stra += "<td>"+str(row[0])+"</td><td>"+str(row[1])+"</td><td>"+str(row[2])+"</td><td>"+str(row[3])+"</td><td>"+str(row[4])+"</td><td>"+str(row[5])+"</td>"
+        stra += "<td align='center'>"+str(row[0])+"</td><td align='center'>"+str(row[1])+"</td><td align='center'>"+str('{:+d}'.format(row[2]))+"</td><td align='center'>"+str(row[3])+"</td><td align='center'>"+str(row[4])+"</td><td align='center'>"+str(row[5])+"</td>"
         stra += "</tr> \n"
     #print(stra)
     
@@ -115,11 +115,11 @@ def text_format_table_groupby():
                 stra += '<tr>'
         else:
             stra +='<tr>'
-        stra += '<td>'+str(index)+"</td>"
+        stra += "<td align='center'>"+str(index)+"</td>"
         for data in row:
-            stra += '<td>'+str(int(data))+"</td>"
+            stra += "<td align='center'>"+str(int(data))+"</td>"
         #stra += "<td>"+str(row[0])+"</td><td>"+str(row[1])+"</td><td>"+str(row[2])+"</td><td>"+str(row[3])+"</td><td>"+str(row[4])+"</td><td>"+str(row[5])+"</td>"
-        stra += "<td>"+str(winRate)+"%</td>"
+        stra += "<td align='center'>"+str(winRate)+"%</td>"
         stra += "</tr> \n"
     #print(stra)
     
@@ -152,11 +152,14 @@ def text_format_table_lastnumber():
                 stra += '<tr>'
         else:
             stra +='<tr>'
-        stra += '<td>'+str(index)+"</td>"
-        
+        stra += '<td align="" valign="">'+str(index)+"</td>"
+        row[0] = '{:+d}'.format(int(row[0]))
         for data in row:
-            stra += '<td>'+str(int(data))+"</td>"
-        stra += "<td>"+str(winRate)+"%</td>"
+            try:
+                stra += "<td align='center'>"+str(int(data))+"</td>"
+            except:
+                stra += "<td align='center'>"+str(data)+"</td>"
+        stra += "<td align='center'>"+str(winRate)+"%</td>"
         #stra += "<td>"+str(int(row[1]))+"</td><td>"+str(int(row[2]))+"</td>"
         stra += "</tr> \n"
     #print(stra)
@@ -167,14 +170,13 @@ def text_format_table_lastnumber():
 def text_format_comment_sum():
     global df
     #print(df['slump'].sum())
-    return "合計差枚は"+str(int(df['slump'].sum()))+"です。"
+    return "<h3>合計差枚は"+str(int(df['slump'].sum()))+"です。</h3><br>"
 
 def text_format_comment_avg():
     global df
     df_s = df.replace('0', np.nan)
     #print(df_s['slump'].mean())
-    return "平均差枚は"+str(int(df_s['slump'].mean()))+"です。"
-
+    return "<h3>平均差枚は"+str(int(df_s['slump'].mean()))+"です。</h3><br>"
 
 df = SystemMain.main()
 file = open(FILE_NAME,'r',encoding="utf-8")
@@ -184,5 +186,5 @@ body = escape(body)
 categories = ['パチンコ','スロット', 'まとめ']
 now = datetime.now()
 # is_draftをFalseにすると公開になります。Trueで下書き投稿
-article = create_hatena_text(TITLE, USER_NAME, body, now, categories, is_draft=False)
+article = create_hatena_text(TITLE, USER_NAME, body, now, categories, is_draft=True)
 post_hatena_blog(USER_NAME, PASSWORD, entry_id=None, blog_name=BLOG_NAME, data=article)

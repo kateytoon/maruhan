@@ -3,8 +3,6 @@ from urllib.parse import urlparse
 import json
 import pprint
 import getTime
-
-
 def getSlump(id):
     time = int(getTime.getTime())
     #print(time)
