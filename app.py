@@ -182,6 +182,7 @@ df = SystemMain.main()
 file = open(FILE_NAME,'r',encoding="utf-8")
 body = file.read().format(text_format_table_number(),text_format_table_slump(),text_format_table_groupby(),text_format_table_lastnumber(),text_format_comment_sum(),text_format_comment_avg())
 file.close()
+
 body = escape(body)
 categories = ['パチンコ','スロット', 'まとめ']
 now = datetime.now()
