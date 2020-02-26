@@ -1,1 +1,9 @@
-slackbot==0.5.1
+requests
+datatime
+hashlib
+base64
+xml.sax.saxutils
+chardet.universaldetector
+random
+pandas
+numpy
